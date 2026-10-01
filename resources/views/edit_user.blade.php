@@ -5,35 +5,47 @@
 <div class="form-page">
 
     <div class="form-heading">
-        <span class="page-label">STUDENT MANAGEMENT</span>
 
-        <h1>Add New Student</h1>
+        <span class="page-label">MANAJEMEN MAHASISWA</span>
+
+        <h1>Edit Data Mahasiswa</h1>
 
         <p>
-            Tambahkan data mahasiswa baru ke dalam sistem.
+            Perbarui informasi mahasiswa yang terdaftar dalam sistem.
         </p>
+
     </div>
 
     <div class="form-card">
 
         <div class="form-card-header">
+
             <div>
-                <h3>Student Information</h3>
-                <p>Lengkapi informasi mahasiswa di bawah ini.</p>
+                <h3>Informasi Mahasiswa</h3>
+
+                <p>
+                    Perbarui informasi mahasiswa di bawah ini.
+                </p>
             </div>
 
             <div class="form-icon">
-                +
+                ✎
             </div>
+
         </div>
 
-        <form action="{{ route('user.store') }}" method="POST">
+        <form
+            action="{{ route('user.update', $user->id) }}"
+            method="POST"
+        >
 
             @csrf
+            @method('PUT')
 
             <div class="form-grid">
 
                 <div class="form-group">
+
                     <label for="nama">
                         Nama Lengkap
                     </label>
@@ -42,12 +54,15 @@
                         type="text"
                         id="nama"
                         name="nama"
+                        value="{{ $user->nama }}"
                         placeholder="Masukkan nama lengkap"
                         required
                     >
+
                 </div>
 
                 <div class="form-group">
+
                     <label for="npm">
                         NPM
                     </label>
@@ -56,12 +71,15 @@
                         type="text"
                         id="npm"
                         name="npm"
+                        value="{{ $user->npm }}"
                         placeholder="Masukkan NPM"
                         required
                     >
+
                 </div>
 
                 <div class="form-group full-width">
+
                     <label for="kelas_id">
                         Kelas
                     </label>
@@ -71,19 +89,24 @@
                         id="kelas_id"
                         required
                     >
-                        <option value="" disabled selected>
+
+                        <option value="" disabled>
                             Pilih kelas
                         </option>
 
                         @foreach ($kelas as $kelasItem)
 
-                            <option value="{{ $kelasItem->id }}">
+                            <option
+                                value="{{ $kelasItem->id }}"
+                                {{ $user->kelas_id == $kelasItem->id ? 'selected' : '' }}
+                            >
                                 {{ $kelasItem->nama_kelas }}
                             </option>
 
                         @endforeach
 
                     </select>
+
                 </div>
 
             </div>
@@ -94,14 +117,14 @@
                     href="{{ route('user.index') }}"
                     class="cancel-button"
                 >
-                    Cancel
+                    Batal
                 </a>
 
                 <button
                     type="submit"
                     class="save-button"
                 >
-                    Add Student
+                    Simpan Perubahan
                 </button>
 
             </div>

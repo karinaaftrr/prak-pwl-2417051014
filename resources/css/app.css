@@ -1,12 +1,746 @@
-@import 'tailwindcss';
+/* =========================
+   GLOBAL
+========================= */
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../**/*.blade.php";
-@source "../**/*.js";
-@source "../**/*.vue";
+* {
+    box-sizing: border-box;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f8fc;
+    color: #202124;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar-custom {
+    height: 72px;
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 55px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+    background: #7567f8;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.navbar-brand h5 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.navbar-brand span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 10px;
+    color: #999999;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-item {
+    text-decoration: none;
+
+    color: #777777;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.nav-item:hover {
+    background: #f0efff;
+    color: #6658e8;
+}
+
+.nav-item.active {
+    background: #f0efff;
+    color: #6658e8;
+}
+
+
+/* =========================
+   GENERAL PAGE
+========================= */
+
+.page-container {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 50px 30px;
+
+    min-height: calc(100vh - 145px);
+}
+
+.page-heading {
+    margin-bottom: 30px;
+}
+
+.page-label {
+    display: block;
+
+    font-size: 11px;
+
+    color: #7567f8;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.page-heading h1 {
+    margin: 7px 0;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #202124;
+}
+
+.page-heading p {
+    margin: 0;
+
+    color: #999999;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   TABLE CARD
+========================= */
+
+.table-card {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(50, 50, 93, 0.06);
+
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 25px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.table-header h3 {
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+.table-header p {
+    margin: 4px 0 0;
+
+    color: #999999;
+
+    font-size: 12px;
+}
+
+.add-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    background: #7567f8;
+
+    color: #ffffff;
+
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.add-button:hover {
+    background: #6254e8;
+    color: #ffffff;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.student-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.student-table th {
+    background: #fafaff;
+
+    color: #999999;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    padding: 15px 20px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+.student-table td {
+    padding: 17px 20px;
+
+    border-top: 1px solid #f1f1f1;
+
+    font-size: 12px;
+
+    color: #555555;
+}
+
+.student-table tbody tr {
+    transition: 0.2s ease;
+}
+
+.student-table tbody tr:hover {
+    background: #fafaff;
+}
+
+.student-table input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #7567f8;
+
+    cursor: pointer;
+}
+
+.student-id {
+    color: #999999;
+
+    font-size: 11px;
+}
+
+.student-name {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #333333;
+
+    font-weight: 500;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: #eeecff;
+
+    color: #7567f8;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.status {
+    display: inline-block;
+
+    background: #e8f8ef;
+
+    color: #35a765;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+
+/* =========================
+   FORM PAGE
+========================= */
+
+.form-page {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 50px 30px;
+
+    min-height: calc(100vh - 145px);
+}
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+.form-heading h1 {
+    margin: 7px 0;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #202124;
+}
+
+.form-heading p {
+    margin: 0;
+
+    color: #999999;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(50, 50, 93, 0.06);
+
+    overflow: hidden;
+}
+
+.form-card-header {
+    padding: 25px 30px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.form-card-header h3 {
+    margin: 0;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+.form-card-header p {
+    margin: 5px 0 0;
+
+    color: #999999;
+
+    font-size: 12px;
+}
+
+.form-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #eeecff;
+
+    color: #7567f8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: 500;
+}
+
+.form-card form {
+    padding: 30px;
+}
+
+
+/* =========================
+   FORM GRID
+========================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #444444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #e4e4e9;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fafaff;
+
+    color: #444444;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #b5b5b5;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+    border-color: #d5d2ff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #7567f8;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(117, 103, 248, 0.08);
+}
+
+
+/* =========================
+   FORM BUTTON
+========================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.cancel-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 11px 20px;
+
+    border-radius: 9px;
+
+    border: 1px solid #e2e2e2;
+
+    background: #ffffff;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.cancel-button:hover {
+    background: #f8f8f8;
+
+    color: #555555;
+}
+
+.save-button {
+    border: none;
+
+    background: #7567f8;
+
+    color: #ffffff;
+
+    padding: 11px 22px;
+
+    border-radius: 9px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-button:hover {
+    background: #6254e8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer-custom {
+    min-height: 73px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eeeeee;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 55px;
+
+    color: #888888;
+
+    font-size: 11px;
+}
+
+.footer-custom strong {
+    color: #555555;
+
+    font-weight: 600;
+}
+
+.footer-custom p {
+    margin: 3px 0 0;
+
+    color: #999999;
+}
+
+.footer-custom span {
+    color: #999999;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar-custom {
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .navbar-menu {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+    .nav-item {
+        white-space: nowrap;
+    }
+
+    .page-container {
+        padding: 35px 15px;
+    }
+
+    .form-page {
+        padding: 35px 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .table-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .add-button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .footer-custom {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+}
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-button,
+.delete-button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    background: #eeeaff;
+    color: #6c5ce7;
+}
+
+.edit-button:hover {
+    background: #ddd7ff;
+}
+
+.delete-button {
+    background: #ffeaea;
+    color: #e05252;
+}
+
+.delete-button:hover {
+    background: #ffd5d5;
 }
