@@ -2,28 +2,24 @@
 
 @section('content')
 
-<h1>Daftar Pengguna</h1>
+<div class="page-container">
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>NPM</th>
-            <th>Kelas</th>
-        </tr>
-    </thead>
+    <div class="page-heading">
 
-    <tbody>
-        @foreach ($users as $user)
-            <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->nama }}</td>
-                <td>{{ $user->npm }}</td>
-                <td>{{ $user->nama_kelas }}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+        <div>
+            <span class="page-label">Pemogramman Web Lanjut</span>
+
+            <h1>Manajement Mahasiswa</h1>
+
+            <p>
+                Kelola data mahasiswa yang terdaftar pada sistem.
+            </p>
+        </div>
+
+    </div>
+
+    <x-user-table :users="$users" />
+
+</div>
 
 @endsection
