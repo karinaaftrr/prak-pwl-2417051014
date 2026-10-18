@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>{{ $title ?? 'PWL' }}</title>
+    <title>{{ $title ?? 'Praktikum Web Lanjut' }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -34,7 +34,11 @@
 
 <body>
 
+    <x-navbar />
+
     @yield('content')
+
+    <x-footer />
 
 </body>
 
