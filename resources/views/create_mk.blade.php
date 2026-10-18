@@ -16,6 +16,16 @@
 
     </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="form-card">
 
         <div class="form-card-header">
@@ -53,9 +63,14 @@
                         type="text"
                         id="nama_mk"
                         name="nama_mk"
+                        value="{{ old('nama_mk') }}"
                         placeholder="Masukkan nama mata kuliah"
                         required
                     >
+
+                    @error('nama_mk')
+                        <span class="text-error" style="color: #e05252; font-size: 11px; margin-top: 4px;">{{ $message }}</span>
+                    @enderror
 
                 </div>
 
@@ -69,11 +84,16 @@
                         type="number"
                         id="sks"
                         name="sks"
+                        value="{{ old('sks') }}"
                         placeholder="Masukkan jumlah SKS"
                         min="1"
                         max="6"
                         required
                     >
+
+                    @error('sks')
+                        <span class="text-error" style="color: #e05252; font-size: 11px; margin-top: 4px;">{{ $message }}</span>
+                    @enderror
 
                 </div>
 
@@ -82,7 +102,7 @@
             <div class="form-actions">
 
                 <a
-                    href="{{ url('/matakuliah') }}"
+                    href="{{ route('matakuliah.index') }}"
                     class="cancel-button"
                 >
                     Batal

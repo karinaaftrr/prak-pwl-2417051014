@@ -282,44 +282,135 @@ body {
 ========================= */
 
 .action-buttons {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
 }
 
 .edit-button,
 .delete-button {
-    padding: 7px 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 7px 14px;
 
     border: none;
-    border-radius: 7px;
+    border-radius: 8px;
 
     font-family: 'Poppins', sans-serif;
-
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
 
     text-decoration: none;
-
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .edit-button {
-    background: #eeeaff;
+    background: #ede9fe;
     color: #6c5ce7;
+    border: 1px solid rgba(108, 92, 231, 0.15);
 }
 
 .edit-button:hover {
-    background: #ddd7ff;
+    background: #6c5ce7;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.25);
+    transform: translateY(-1px);
 }
 
 .delete-button {
-    background: #ffeaea;
-    color: #e05252;
+    background: #fee2e2;
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.15);
 }
 
 .delete-button:hover {
-    background: #ffd5d5;
+    background: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   ALERT NOTIFICATIONS
+========================= */
+
+.alert {
+    padding: 14px 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: fadeIn 0.3s ease;
+}
+
+.alert-success {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.alert-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    padding: 0 4px;
+    transition: opacity 0.2s;
+}
+
+.alert-close:hover {
+    opacity: 1;
+}
+
+.btn-icon {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =========================
